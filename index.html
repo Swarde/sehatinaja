@@ -1,0 +1,1260 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>SehatinAja.com - Layanan Skrining Kesehatan Online</title>
+	<script src="https://cdn.tailwindcss.com"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+	<style>
+		.hero-gradient {
+			background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+		}
+
+		.card-hover:hover {
+			transform: translateY(-5px);
+			box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+		}
+
+		.screening-card {
+			transition: all 0.3s ease;
+		}
+
+		.screening-card:hover {
+			transform: scale(1.03);
+		}
+
+		.nav-link {
+			position: relative;
+		}
+
+		.nav-link:after {
+			content: '';
+			position: absolute;
+			width: 0;
+			height: 2px;
+			bottom: 0;
+			left: 0;
+			background-color: #3b82f6;
+			transition: width 0.3s ease;
+		}
+
+		.nav-link:hover:after {
+			width: 100%;
+		}
+
+		.dropdown:hover .dropdown-menu {
+			display: block;
+		}
+	</style>
+</head>
+
+<body class="font-sans bg-gray-50">
+	<!-- Header/Navigation -->
+	<header class="bg-white shadow-md sticky top-0 z-50">
+		<div class="container mx-auto px-4 py-3 flex justify-between items-center">
+			<div class="flex items-center">
+				<a href="#" class="flex items-center">
+					<img src="assets/images/logo.jpg" alt="SehatinAja Logo" class="w-10 h-10 mr-2">
+					<span class="text-xl font-bold text-blue-600">SehatinAja</span>
+				</a>
+			</div>
+
+			<nav class="hidden md:flex space-x-8">
+				<a href="#home" class="nav-link text-gray-700 hover:text-blue-600">Beranda</a>
+
+				<div class="dropdown relative">
+					<button class="nav-link text-gray-700 hover:text-blue-600 flex items-center">
+						Layanan <i class="fas fa-chevron-down ml-1 text-xs"></i>
+					</button>
+					<div class="dropdown-menu absolute hidden bg-white shadow-lg rounded-md mt-2 py-2 w-48">
+						<a href="#screening"
+							class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Skrining Kesehatan</a>
+						<a href="#elderly" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Khusus
+							Lansia</a>
+						<a href="#consultation"
+							class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Konsultasi Dokter</a>
+					</div>
+				</div>
+
+				<a href="#about" class="nav-link text-gray-700 hover:text-blue-600">Tentang Kami</a>
+				<a href="#articles" class="nav-link text-gray-700 hover:text-blue-600">Artikel</a>
+				<a href="#media" class="nav-link text-gray-700 hover:text-blue-600">Media</a>
+				<a href="#forum" class="nav-link text-gray-700 hover:text-blue-600">Forum</a>
+				<a href="#shop" class="nav-link text-gray-700 hover:text-blue-600">Alat Kesehatan</a>
+			</nav>
+
+			<div class="flex items-center space-x-4">
+				<a href="#login" class="text-gray-700 hover:text-blue-600 hidden md:block">Masuk</a>
+				<a href="#register"
+					class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition duration-300 hidden md:block">Daftar</a>
+				<button class="md:hidden text-gray-700" id="mobile-menu-button">
+					<i class="fas fa-bars text-xl"></i>
+				</button>
+			</div>
+		</div>
+
+		<!-- Mobile Menu -->
+		<div class="md:hidden hidden bg-white shadow-lg" id="mobile-menu">
+			<div class="px-4 py-3 space-y-3">
+				<a href="#home" class="block text-gray-700 hover:text-blue-600">Beranda</a>
+				<a href="#screening" class="block text-gray-700 hover:text-blue-600">Skrining Kesehatan</a>
+				<a href="#elderly" class="block text-gray-700 hover:text-blue-600">Khusus Lansia</a>
+				<a href="#consultation" class="block text-gray-700 hover:text-blue-600">Konsultasi Dokter</a>
+				<a href="#about" class="block text-gray-700 hover:text-blue-600">Tentang Kami</a>
+				<a href="#articles" class="block text-gray-700 hover:text-blue-600">Artikel</a>
+				<a href="#media" class="block text-gray-700 hover:text-blue-600">Media</a>
+				<a href="#forum" class="block text-gray-700 hover:text-blue-600">Forum</a>
+				<a href="#shop" class="block text-gray-700 hover:text-blue-600">Alat Kesehatan</a>
+				<div class="pt-2 border-t">
+					<a href="#login" class="block text-gray-700 hover:text-blue-600">Masuk</a>
+					<a href="#register"
+						class="block bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg mt-2 text-center">Daftar</a>
+				</div>
+			</div>
+		</div>
+	</header>
+
+	<!-- Hero Section -->
+	<section id="home" class="hero-gradient text-white py-16 md:py-24">
+		<div class="container mx-auto px-4 flex flex-col md:flex-row items-center">
+			<div class="md:w-1/2 mb-10 md:mb-0">
+				<h1 class="text-4xl md:text-5xl font-bold mb-6">Skrining Kesehatan Online yang Mudah dan Akurat</h1>
+				<p class="text-xl mb-8">Lakukan pemeriksaan kesehatan awal secara mandiri dengan panduan dokter spesialis
+					kami. Ketahui risiko kesehatan Anda sekarang juga!</p>
+				<div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+					<a href="#screening"
+						class="bg-white text-blue-600 hover:bg-gray-100 font-semibold py-3 px-6 rounded-lg text-center transition duration-300">
+						Mulai Skrining Sekarang <i class="fas fa-arrow-right ml-2"></i>
+					</a>
+					<a href="#consultation"
+						class="border-2 border-white hover:bg-white hover:text-blue-600 font-semibold py-3 px-6 rounded-lg text-center transition duration-300">
+						Konsultasi Dokter
+					</a>
+				</div>
+			</div>
+			<div class="md:w-1/2 flex justify-center">
+				<img src="https://img.freepik.com/free-vector/doctor-character-avatar-isolated_24877-60194.jpg" alt="Dokter"
+					class="rounded-lg shadow-xl w-full max-w-md">
+			</div>
+		</div>
+	</section>
+
+	<!-- Features Section -->
+	<section class="py-16 bg-white">
+		<div class="container mx-auto px-4">
+			<h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Layanan Unggulan Kami</h2>
+
+			<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+				<!-- Feature 1 -->
+				<div class="bg-gray-50 p-6 rounded-xl shadow-md card-hover transition duration-300">
+					<div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mb-4">
+						<i class="fas fa-heartbeat text-blue-600 text-2xl"></i>
+					</div>
+					<h3 class="text-xl font-semibold mb-3 text-gray-800">Skrining Kesehatan</h3>
+					<p class="text-gray-600">Lakukan pemeriksaan awal untuk jantung, diabetes, ginjal, dan kesehatan mental
+						dengan mudah dari rumah.</p>
+				</div>
+
+				<!-- Feature 2 -->
+				<div class="bg-gray-50 p-6 rounded-xl shadow-md card-hover transition duration-300">
+					<div class="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mb-4">
+						<i class="fas fa-user-md text-green-600 text-2xl"></i>
+					</div>
+					<h3 class="text-xl font-semibold mb-3 text-gray-800">Konsultasi Dokter</h3>
+					<p class="text-gray-600">Konsultasikan hasil skrining Anda langsung dengan dokter spesialis kami secara
+						online.</p>
+				</div>
+
+				<!-- Feature 3 -->
+				<div class="bg-gray-50 p-6 rounded-xl shadow-md card-hover transition duration-300">
+					<div class="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mb-4">
+						<i class="fas fa-notes-medical text-purple-600 text-2xl"></i>
+					</div>
+					<h3 class="text-xl font-semibold mb-3 text-gray-800">Riwayat Kesehatan</h3>
+					<p class="text-gray-600">Simpan dan pantau perkembangan kesehatan Anda dengan fitur riwayat yang
+						terintegrasi.</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Screening Section -->
+	<section id="screening" class="py-16 bg-gray-50">
+		<div class="container mx-auto px-4">
+			<h2 class="text-3xl font-bold text-center mb-4 text-gray-800">Skrining Kesehatan</h2>
+			<p class="text-xl text-center mb-12 text-gray-600 max-w-3xl mx-auto">Pilih jenis skrining yang ingin Anda
+				lakukan untuk mengetahui risiko kesehatan Anda.</p>
+
+			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+				<!-- Jantung -->
+				<div class="bg-white rounded-xl overflow-hidden shadow-md screening-card">
+					<div class="bg-red-500 h-2"></div>
+					<div class="p-6">
+						<div class="flex items-center mb-4">
+							<div class="bg-red-100 p-3 rounded-full mr-4">
+								<i class="fas fa-heart text-red-500 text-xl"></i>
+							</div>
+							<h3 class="text-xl font-semibold text-gray-800">Skrining Jantung</h3>
+						</div>
+						<p class="text-gray-600 mb-4">Ketahui risiko penyakit jantung dengan menjawab beberapa pertanyaan
+							sederhana.</p>
+						<a href="#screening-heart" class="text-red-500 font-semibold hover:text-red-600 flex items-center">
+							Mulai Skrining <i class="fas fa-arrow-right ml-2"></i>
+						</a>
+					</div>
+				</div>
+
+				<!-- Diabetes -->
+				<div class="bg-white rounded-xl overflow-hidden shadow-md screening-card">
+					<div class="bg-yellow-500 h-2"></div>
+					<div class="p-6">
+						<div class="flex items-center mb-4">
+							<div class="bg-yellow-100 p-3 rounded-full mr-4">
+								<i class="fas fa-syringe text-yellow-500 text-xl"></i>
+							</div>
+							<h3 class="text-xl font-semibold text-gray-800">Skrining Diabetes</h3>
+						</div>
+						<p class="text-gray-600 mb-4">Evaluasi risiko diabetes tipe 2 dengan kalkulator risiko kami.</p>
+						<a href="#screening-diabetes"
+							class="text-yellow-500 font-semibold hover:text-yellow-600 flex items-center">
+							Mulai Skrining <i class="fas fa-arrow-right ml-2"></i>
+						</a>
+					</div>
+				</div>
+
+				<!-- Ginjal -->
+				<div class="bg-white rounded-xl overflow-hidden shadow-md screening-card">
+					<div class="bg-blue-500 h-2"></div>
+					<div class="p-6">
+						<div class="flex items-center mb-4">
+							<div class="bg-blue-100 p-3 rounded-full mr-4">
+								<i class="fas fa-filter text-blue-500 text-xl"></i>
+							</div>
+							<h3 class="text-xl font-semibold text-gray-800">Skrining Ginjal</h3>
+						</div>
+						<p class="text-gray-600 mb-4">Deteksi dini masalah ginjal dengan kuesioner dan kalkulator kami.</p>
+						<a href="#screening-kidney" class="text-blue-500 font-semibold hover:text-blue-600 flex items-center">
+							Mulai Skrining <i class="fas fa-arrow-right ml-2"></i>
+						</a>
+					</div>
+				</div>
+
+				<!-- Mental Health -->
+				<div class="bg-white rounded-xl overflow-hidden shadow-md screening-card">
+					<div class="bg-purple-500 h-2"></div>
+					<div class="p-6">
+						<div class="flex items-center mb-4">
+							<div class="bg-purple-100 p-3 rounded-full mr-4">
+								<i class="fas fa-brain text-purple-500 text-xl"></i>
+							</div>
+							<h3 class="text-xl font-semibold text-gray-800">Kesehatan Mental</h3>
+						</div>
+						<p class="text-gray-600 mb-4">Evaluasi kesehatan mental Anda dengan kuesioner yang disusun oleh
+							psikolog.</p>
+						<a href="#screening-mental"
+							class="text-purple-500 font-semibold hover:text-purple-600 flex items-center">
+							Mulai Skrining <i class="fas fa-arrow-right ml-2"></i>
+						</a>
+					</div>
+				</div>
+
+				<!-- Gizi -->
+				<div class="bg-white rounded-xl overflow-hidden shadow-md screening-card">
+					<div class="bg-green-500 h-2"></div>
+					<div class="p-6">
+						<div class="flex items-center mb-4">
+							<div class="bg-green-100 p-3 rounded-full mr-4">
+								<i class="fas fa-utensils text-green-500 text-xl"></i>
+							</div>
+							<h3 class="text-xl font-semibold text-gray-800">Kalkulator Gizi</h3>
+						</div>
+						<p class="text-gray-600 mb-4">Hitung kebutuhan gizi harian dan BMI untuk mengetahui status gizi Anda.
+						</p>
+						<a href="#screening-nutrition"
+							class="text-green-500 font-semibold hover:text-green-600 flex items-center">
+							Mulai Skrining <i class="fas fa-arrow-right ml-2"></i>
+						</a>
+					</div>
+				</div>
+
+				<!-- Lansia -->
+				<div class="bg-white rounded-xl overflow-hidden shadow-md screening-card">
+					<div class="bg-indigo-500 h-2"></div>
+					<div class="p-6">
+						<div class="flex items-center mb-4">
+							<div class="bg-indigo-100 p-3 rounded-full mr-4">
+								<i class="fas fa-wheelchair text-indigo-500 text-xl"></i>
+							</div>
+							<h3 class="text-xl font-semibold text-gray-800">Khusus Lansia</h3>
+						</div>
+						<p class="text-gray-600 mb-4">Skrining kesehatan komprehensif khusus untuk usia lanjut.</p>
+						<a href="#screening-elderly"
+							class="text-indigo-500 font-semibold hover:text-indigo-600 flex items-center">
+							Mulai Skrining <i class="fas fa-arrow-right ml-2"></i>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- About Section -->
+	<section id="about" class="py-16 bg-white">
+		<div class="container mx-auto px-4">
+			<h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Tentang Kami</h2>
+
+			<div class="flex flex-col lg:flex-row items-center">
+				<div class="lg:w-1/2 mb-10 lg:mb-0 lg:pr-10">
+					<h3 class="text-2xl font-semibold mb-4 text-gray-800">Visi Kami</h3>
+					<p class="text-gray-600 mb-6">Menjadi platform skrining kesehatan online terdepan yang memberikan akses
+						mudah dan akurat untuk deteksi dini masalah kesehatan bagi masyarakat Indonesia.</p>
+
+					<h3 class="text-2xl font-semibold mb-4 text-gray-800">Misi Kami</h3>
+					<ul class="text-gray-600 mb-6 space-y-2">
+						<li class="flex items-start">
+							<i class="fas fa-check-circle text-blue-500 mt-1 mr-2"></i>
+							<span>Menyediakan alat skrining kesehatan yang mudah digunakan dan berbasis bukti ilmiah</span>
+						</li>
+						<li class="flex items-start">
+							<i class="fas fa-check-circle text-blue-500 mt-1 mr-2"></i>
+							<span>Memberikan edukasi kesehatan yang akurat dan mudah dipahami</span>
+						</li>
+						<li class="flex items-start">
+							<i class="fas fa-check-circle text-blue-500 mt-1 mr-2"></i>
+							<span>Mempermudah akses konsultasi dengan tenaga medis profesional</span>
+						</li>
+					</ul>
+
+					<div class="bg-blue-50 p-4 rounded-lg">
+						<h4 class="font-semibold text-blue-600 mb-2">Fasilitas Kami</h4>
+						<p class="text-gray-600">Kami menggunakan alat-alat medis terkini dan bekerja sama dengan laboratorium
+							terakreditasi untuk memastikan keakuratan hasil skrining.</p>
+					</div>
+				</div>
+
+				<div class="lg:w-1/2">
+					<h3 class="text-2xl font-semibold mb-6 text-center lg:text-left text-gray-800">Tim Dokter Kami</h3>
+
+					<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+						<!-- Dr. Bima -->
+						<div class="bg-white border border-gray-200 rounded-lg shadow-sm overflow-hidden">
+							<div class="bg-blue-600 h-2"></div>
+							<div class="p-4">
+								<div class="flex items-center mb-4">
+									<img
+										src="https://img.freepik.com/free-photo/doctor-with-his-arms-crossed-white-background_1368-5790.jpg"
+										alt="Dr. Bima" class="w-16 h-16 rounded-full object-cover mr-4">
+									<div>
+										<h4 class="font-bold text-gray-800">dr. Bima, Sp.JP</h4>
+										<p class="text-sm text-gray-600">Spesialis Jantung dan Pembuluh Darah</p>
+									</div>
+								</div>
+								<p class="text-gray-600 text-sm mb-3">Dokter spesialis jantung dengan pengalaman lebih dari 10
+									tahun di bidang kardiologi.</p>
+								<a href="mailto:drbima@sehatinaja.com"
+									class="text-blue-500 text-sm hover:text-blue-600">drbima@sehatinaja.com</a>
+							</div>
+						</div>
+
+						<!-- Dr. Nur Riviati -->
+						<div class="bg-white border border-gray-200 rounded-lg shadow-sm overflow-hidden">
+							<div class="bg-purple-600 h-2"></div>
+							<div class="p-4">
+								<div class="flex items-center mb-4">
+									<img
+										src="https://img.freepik.com/free-photo/beautiful-young-female-doctor-looking-camera-office_1301-7807.jpg"
+										alt="Dr. Nur Riviati" class="w-16 h-16 rounded-full object-cover mr-4">
+									<div>
+										<h4 class="font-bold text-gray-800">dr. Nur Riviati, Sp.PD</h4>
+										<p class="text-sm text-gray-600">Spesialis Penyakit Dalam</p>
+									</div>
+								</div>
+								<p class="text-gray-600 text-sm mb-3">Ahli penyakit dalam dengan fokus pada diabetes dan
+									penyakit metabolik.</p>
+								<a href="mailto:drriviati@sehatinaja.com"
+									class="text-purple-500 text-sm hover:text-purple-600">drriviati@sehatinaja.com</a>
+							</div>
+						</div>
+
+						<!-- Dr. Nur Qodir -->
+						<div class="bg-white border border-gray-200 rounded-lg shadow-sm overflow-hidden">
+							<div class="bg-green-600 h-2"></div>
+							<div class="p-4">
+								<div class="flex items-center mb-4">
+									<img
+										src="https://img.freepik.com/free-photo/portrait-male-doctor-standing-hospital-corridor_23-2148827998.jpg"
+										alt="Dr. Nur Qodir" class="w-16 h-16 rounded-full object-cover mr-4">
+									<div>
+										<h4 class="font-bold text-gray-800">dr. Nur Qodir, Sp.KJ</h4>
+										<p class="text-sm text-gray-600">Spesialis Kesehatan Jiwa</p>
+									</div>
+								</div>
+								<p class="text-gray-600 text-sm mb-3">Psikiater dengan pendekatan holistik untuk kesehatan
+									mental.</p>
+								<a href="mailto:drqodir@sehatinaja.com"
+									class="text-green-500 text-sm hover:text-green-600">drqodir@sehatinaja.com</a>
+							</div>
+						</div>
+
+						<!-- Join Team -->
+						<div class="bg-white border border-gray-200 rounded-lg shadow-sm overflow-hidden">
+							<div class="bg-yellow-600 h-2"></div>
+							<div class="p-4 flex flex-col items-center justify-center h-full">
+								<div class="bg-yellow-100 w-12 h-12 rounded-full flex items-center justify-center mb-4">
+									<i class="fas fa-user-plus text-yellow-600 text-xl"></i>
+								</div>
+								<h4 class="font-bold text-gray-800 mb-2 text-center">Bergabung dengan Tim Kami</h4>
+								<p class="text-gray-600 text-sm mb-3 text-center">Kami selalu mencari tenaga medis profesional
+									untuk bergabung.</p>
+								<a href="#join" class="text-yellow-500 text-sm hover:text-yellow-600 font-semibold">Kirim
+									Lamaran</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Elderly Section -->
+	<section id="elderly" class="py-16 bg-blue-50">
+		<div class="container mx-auto px-4">
+			<div class="flex flex-col lg:flex-row items-center">
+				<div class="lg:w-1/2 mb-10 lg:mb-0 lg:pr-10">
+					<h2 class="text-3xl font-bold mb-6 text-gray-800">Layanan Khusus Lansia</h2>
+					<p class="text-gray-600 mb-6">Kami memahami bahwa kebutuhan kesehatan lansia berbeda. Oleh karena itu,
+						kami menyediakan skrining kesehatan khusus yang mencakup berbagai aspek penting untuk usia lanjut.</p>
+
+					<div class="bg-white p-6 rounded-lg shadow-sm mb-6">
+						<h3 class="text-xl font-semibold mb-3 text-gray-800">Apa yang termasuk dalam skrining lansia?</h3>
+						<ul class="space-y-2 text-gray-600">
+							<li class="flex items-start">
+								<i class="fas fa-check text-blue-500 mt-1 mr-2"></i>
+								<span>Evaluasi risiko jatuh dan keseimbangan</span>
+							</li>
+							<li class="flex items-start">
+								<i class="fas fa-check text-blue-500 mt-1 mr-2"></i>
+								<span>Skrining kognitif untuk deteksi dini demensia</span>
+							</li>
+							<li class="flex items-start">
+								<i class="fas fa-check text-blue-500 mt-1 mr-2"></i>
+								<span>Pemeriksaan nutrisi dan status gizi</span>
+							</li>
+							<li class="flex items-start">
+								<i class="fas fa-check text-blue-500 mt-1 mr-2"></i>
+								<span>Evaluasi penglihatan dan pendengaran</span>
+							</li>
+							<li class="flex items-start">
+								<i class="fas fa-check text-blue-500 mt-1 mr-2"></i>
+								<span>Skrining depresi dan kualitas hidup</span>
+							</li>
+						</ul>
+					</div>
+
+					<a href="#elderly-screening"
+						class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg inline-flex items-center">
+						Mulai Skrining Lansia <i class="fas fa-arrow-right ml-2"></i>
+					</a>
+				</div>
+
+				<div class="lg:w-1/2">
+					<img src="https://img.freepik.com/free-photo/elderly-couple-doing-exercise-park_23-2148734564.jpg"
+						alt="Lansia sehat" class="rounded-lg shadow-xl w-full">
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Articles Section -->
+	<section id="articles" class="py-16 bg-white">
+		<div class="container mx-auto px-4">
+			<h2 class="text-3xl font-bold text-center mb-4 text-gray-800">Artikel Kesehatan Terkini</h2>
+			<p class="text-xl text-center mb-12 text-gray-600 max-w-3xl mx-auto">Informasi kesehatan terpercaya yang
+				ditulis oleh dokter spesialis kami.</p>
+
+			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+				<!-- Article 1 -->
+				<div
+					class="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition duration-300">
+					<img
+						src="https://img.freepik.com/free-photo/doctor-with-stethoscope-hands-hospital-background_1423-1.jpg"
+						alt="Jantung sehat" class="w-full h-48 object-cover">
+					<div class="p-6">
+						<div class="flex items-center text-sm text-gray-500 mb-2">
+							<span>15 Juni 2025</span>
+							<span class="mx-2">•</span>
+							<span>dr. Bima, Sp.JP</span>
+						</div>
+						<h3 class="text-xl font-semibold mb-3 text-gray-800">5 Langkah Sederhana untuk Jantung yang Lebih
+							Sehat</h3>
+						<p class="text-gray-600 mb-4">Temukan perubahan gaya hidup kecil yang bisa memberikan dampak besar
+							bagi kesehatan jantung Anda.</p>
+						<a href="#read-more" class="text-blue-500 font-semibold hover:text-blue-600 flex items-center">
+							Baca Selengkapnya <i class="fas fa-arrow-right ml-2"></i>
+						</a>
+					</div>
+				</div>
+
+				<!-- Article 2 -->
+				<div
+					class="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition duration-300">
+					<img src="https://img.freepik.com/free-photo/healthy-food-black-table_1150-38014.jpg" alt="Makanan sehat"
+						class="w-full h-48 object-cover">
+					<div class="p-6">
+						<div class="flex items-center text-sm text-gray-500 mb-2">
+							<span>10 Juni 2025</span>
+							<span class="mx-2">•</span>
+							<span>dr. Nur Riviati, Sp.PD</span>
+						</div>
+						<h3 class="text-xl font-semibold mb-3 text-gray-800">Diet Seimbang untuk Mencegah Diabetes</h3>
+						<p class="text-gray-600 mb-4">Panduan praktis menyusun menu harian yang membantu mengontrol kadar gula
+							darah.</p>
+						<a href="#read-more" class="text-blue-500 font-semibold hover:text-blue-600 flex items-center">
+							Baca Selengkapnya <i class="fas fa-arrow-right ml-2"></i>
+						</a>
+					</div>
+				</div>
+
+				<!-- Article 3 -->
+				<div
+					class="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition duration-300">
+					<img src="https://img.freepik.com/free-photo/young-woman-meditating-morning_1150-10136.jpg"
+						alt="Meditasi" class="w-full h-48 object-cover">
+					<div class="p-6">
+						<div class="flex items-center text-sm text-gray-500 mb-2">
+							<span>5 Juni 2025</span>
+							<span class="mx-2">•</span>
+							<span>dr. Nur Qodir, Sp.KJ</span>
+						</div>
+						<h3 class="text-xl font-semibold mb-3 text-gray-800">Teknik Relaksasi untuk Mengurangi Stres Harian
+						</h3>
+						<p class="text-gray-600 mb-4">Latihan sederhana yang bisa dilakukan di mana saja untuk meningkatkan
+							kesehatan mental.</p>
+						<a href="#read-more" class="text-blue-500 font-semibold hover:text-blue-600 flex items-center">
+							Baca Selengkapnya <i class="fas fa-arrow-right ml-2"></i>
+						</a>
+					</div>
+				</div>
+			</div>
+
+			<div class="text-center mt-12">
+				<a href="#all-articles"
+					class="bg-white hover:bg-gray-50 text-blue-600 font-semibold py-3 px-6 rounded-lg border border-blue-600 inline-flex items-center">
+					Lihat Semua Artikel <i class="fas fa-arrow-right ml-2"></i>
+				</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- Media Section -->
+	<section id="media" class="py-16 bg-gray-50">
+		<div class="container mx-auto px-4">
+			<h2 class="text-3xl font-bold text-center mb-4 text-gray-800">Media Publikasi</h2>
+			<p class="text-xl text-center mb-12 text-gray-600 max-w-3xl mx-auto">Hasil penelitian dan publikasi ilmiah dari
+				tim dokter kami.</p>
+
+			<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+				<!-- Publication 1 -->
+				<div class="bg-white p-6 rounded-lg shadow-sm">
+					<div class="flex items-start mb-4">
+						<div class="bg-blue-100 p-3 rounded-lg mr-4">
+							<i class="fas fa-file-pdf text-blue-600 text-xl"></i>
+						</div>
+						<div>
+							<h3 class="text-xl font-semibold text-gray-800">Faktor Risiko Penyakit Jantung pada Populasi Urban
+							</h3>
+							<p class="text-sm text-gray-500">dr. Bima, Sp.JP | Jurnal Kardiologi Indonesia, 2025</p>
+						</div>
+					</div>
+					<p class="text-gray-600 mb-4">Penelitian tentang prevalensi faktor risiko penyakit jantung di kota-kota
+						besar Indonesia dan rekomendasi intervensi.</p>
+					<a href="#download" class="text-blue-500 text-sm font-semibold hover:text-blue-600 flex items-center">
+						Unduh Full Text <i class="fas fa-download ml-2"></i>
+					</a>
+				</div>
+
+				<!-- Publication 2 -->
+				<div class="bg-white p-6 rounded-lg shadow-sm">
+					<div class="flex items-start mb-4">
+						<div class="bg-green-100 p-3 rounded-lg mr-4">
+							<i class="fas fa-file-pdf text-green-600 text-xl"></i>
+						</div>
+						<div>
+							<h3 class="text-xl font-semibold text-gray-800">Efektivitas Program Edukasi Diabetes Mandiri</h3>
+							<p class="text-sm text-gray-500">dr. Nur Riviati, Sp.PD | Jurnal Penyakit Dalam, 2022</p>
+						</div>
+					</div>
+					<p class="text-gray-600 mb-4">Studi tentang dampak program edukasi mandiri terhadap kontrol glikemik
+						pasien diabetes tipe 2.</p>
+					<a href="#download" class="text-green-500 text-sm font-semibold hover:text-green-600 flex items-center">
+						Unduh Full Text <i class="fas fa-download ml-2"></i>
+					</a>
+				</div>
+
+				<!-- Publication 3 -->
+				<div class="bg-white p-6 rounded-lg shadow-sm">
+					<div class="flex items-start mb-4">
+						<div class="bg-purple-100 p-3 rounded-lg mr-4">
+							<i class="fas fa-video text-purple-600 text-xl"></i>
+						</div>
+						<div>
+							<h3 class="text-xl font-semibold text-gray-800">Webinar: Kesehatan Mental di Era Digital</h3>
+							<p class="text-sm text-gray-500">dr. Nur Qodir, Sp.KJ | SehatinAja Webinar Series, 2025</p>
+						</div>
+					</div>
+					<p class="text-gray-600 mb-4">Rekaman webinar tentang tantangan kesehatan mental di era digital dan
+						strategi mengatasinya.</p>
+					<a href="#watch" class="text-purple-500 text-sm font-semibold hover:text-purple-600 flex items-center">
+						Tonton Sekarang <i class="fas fa-play ml-2"></i>
+					</a>
+				</div>
+
+				<!-- Publication 4 -->
+				<div class="bg-white p-6 rounded-lg shadow-sm">
+					<div class="flex items-start mb-4">
+						<div class="bg-yellow-100 p-3 rounded-lg mr-4">
+							<i class="fas fa-podcast text-yellow-600 text-xl"></i>
+						</div>
+						<div>
+							<h3 class="text-xl font-semibold text-gray-800">Podcast: Nutrisi Optimal untuk Lansia</h3>
+							<p class="text-sm text-gray-500">dr. Nur Riviati, Sp.PD | SehatinAja Podcast, 2025</p>
+						</div>
+					</div>
+					<p class="text-gray-600 mb-4">Diskusi tentang kebutuhan nutrisi khusus untuk lansia dan tips menyusun
+						menu sehari-hari.</p>
+					<a href="#listen" class="text-yellow-500 text-sm font-semibold hover:text-yellow-600 flex items-center">
+						Dengarkan Sekarang <i class="fas fa-headphones ml-2"></i>
+					</a>
+				</div>
+			</div>
+
+			<div class="text-center mt-12">
+				<a href="#all-media"
+					class="bg-white hover:bg-gray-50 text-blue-600 font-semibold py-3 px-6 rounded-lg border border-blue-600 inline-flex items-center">
+					Lihat Semua Publikasi <i class="fas fa-arrow-right ml-2"></i>
+				</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- Forum Section -->
+	<section id="forum" class="py-16 bg-white">
+		<div class="container mx-auto px-4">
+			<div class="flex flex-col lg:flex-row items-center">
+				<div class="lg:w-1/2 mb-10 lg:mb-0 lg:pr-10">
+					<h2 class="text-3xl font-bold mb-6 text-gray-800">Forum Diskusi Kesehatan</h2>
+					<p class="text-gray-600 mb-6">Bergabunglah dengan komunitas kesehatan kami untuk berdiskusi, bertanya,
+						dan berbagi pengalaman dengan anggota lain dan dokter spesialis kami.</p>
+
+					<div class="bg-blue-50 p-6 rounded-lg mb-6">
+						<h3 class="text-xl font-semibold mb-3 text-gray-800">Topik Populer</h3>
+						<ul class="space-y-3">
+							<li class="flex items-start">
+								<div class="bg-blue-100 p-2 rounded-full mr-3">
+									<i class="fas fa-comment text-blue-600 text-sm"></i>
+								</div>
+								<div>
+									<a href="#topic" class="text-blue-600 hover:text-blue-700 font-medium">Pengalaman mengontrol
+										gula darah tanpa obat</a>
+									<p class="text-sm text-gray-500">152 komentar</p>
+								</div>
+							</li>
+							<li class="flex items-start">
+								<div class="bg-blue-100 p-2 rounded-full mr-3">
+									<i class="fas fa-comment text-blue-600 text-sm"></i>
+								</div>
+								<div>
+									<a href="#topic" class="text-blue-600 hover:text-blue-700 font-medium">Latihan fisik yang
+										aman untuk penderita jantung</a>
+									<p class="text-sm text-gray-500">98 komentar</p>
+								</div>
+							</li>
+							<li class="flex items-start">
+								<div class="bg-blue-100 p-2 rounded-full mr-3">
+									<i class="fas fa-comment text-blue-600 text-sm"></i>
+								</div>
+								<div>
+									<a href="#topic" class="text-blue-600 hover:text-blue-700 font-medium">Mengatasi insomnia
+										tanpa obat</a>
+									<p class="text-sm text-gray-500">76 komentar</p>
+								</div>
+							</li>
+						</ul>
+					</div>
+
+					<div class="flex space-x-4">
+						<a href="#join-forum"
+							class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg">
+							Gabung Forum
+						</a>
+						<a href="#ask-doctor"
+							class="bg-white hover:bg-gray-50 text-blue-600 font-semibold py-3 px-6 rounded-lg border border-blue-600">
+							Tanya Dokter
+						</a>
+					</div>
+				</div>
+
+				<div class="lg:w-1/2">
+					<div class="bg-gray-50 border border-gray-200 rounded-lg p-6">
+						<h3 class="text-xl font-semibold mb-4 text-gray-800">Pertanyaan Terbaru</h3>
+
+						<div class="space-y-4">
+							<!-- Question 1 -->
+							<div class="bg-white p-4 rounded-lg shadow-sm">
+								<div class="flex items-start mb-2">
+									<img src="https://img.freepik.com/free-photo/portrait-young-man-smiling_23-2149022623.jpg"
+										alt="User" class="w-10 h-10 rounded-full mr-3">
+									<div>
+										<h4 class="font-medium text-gray-800">Bagaimana cara menurunkan kolesterol tanpa obat?
+										</h4>
+										<p class="text-sm text-gray-500">Oleh: Andi • 2 jam lalu</p>
+									</div>
+								</div>
+								<div class="flex items-start pl-13">
+									<div class="bg-blue-50 p-2 rounded-full mr-3">
+										<i class="fas fa-user-md text-blue-600 text-sm"></i>
+									</div>
+									<div>
+										<p class="text-sm text-gray-600">dr. Bima: "Ada beberapa strategi alami yang bisa dicoba,
+											seperti meningkatkan asupan serat larut, olahraga teratur, dan mengurangi lemak
+											jenuh..." <a href="#read-more" class="text-blue-500">Baca selengkapnya</a></p>
+									</div>
+								</div>
+							</div>
+
+							<!-- Question 2 -->
+							<div class="bg-white p-4 rounded-lg shadow-sm">
+								<div class="flex items-start mb-2">
+									<img
+										src="https://img.freepik.com/free-photo/young-beautiful-woman-pink-warm-sweater-natural-look-smiling-portrait-isolated-long-hair_285396-896.jpg"
+										alt="User" class="w-10 h-10 rounded-full mr-3">
+									<div>
+										<h4 class="font-medium text-gray-800">Apakah sering kesemutan tanda diabetes?</h4>
+										<p class="text-sm text-gray-500">Oleh: Rina • 5 jam lalu</p>
+									</div>
+								</div>
+								<div class="text-right">
+									<span class="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded">Menunggu jawaban
+										dokter</span>
+								</div>
+							</div>
+
+							<!-- Question 3 -->
+							<div class="bg-white p-4 rounded-lg shadow-sm">
+								<div class="flex items-start mb-2">
+									<img
+										src="https://img.freepik.com/free-photo/senior-man-face-portrait-wearing-eyeglasses_53876-30041.jpg"
+										alt="User" class="w-10 h-10 rounded-full mr-3">
+									<div>
+										<h4 class="font-medium text-gray-800">Olahraga apa yang aman untuk lansia dengan
+											osteoporosis?</h4>
+										<p class="text-sm text-gray-500">Oleh: Budi • Kemarin</p>
+									</div>
+								</div>
+								<div class="flex items-start pl-13">
+									<div class="bg-blue-50 p-2 rounded-full mr-3">
+										<i class="fas fa-user-md text-blue-600 text-sm"></i>
+									</div>
+									<div>
+										<p class="text-sm text-gray-600">dr. Nur Riviati: "Untuk lansia dengan osteoporosis,
+											olahraga low-impact seperti berjalan kaki, tai chi, atau berenang sangat
+											direkomendasikan..." <a href="#read-more" class="text-blue-500">Baca selengkapnya</a>
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="text-center mt-6">
+							<a href="#all-questions"
+								class="text-blue-500 text-sm font-semibold hover:text-blue-600 flex items-center justify-center">
+								Lihat Semua Pertanyaan <i class="fas fa-arrow-right ml-2"></i>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Shop Section -->
+	<section id="shop" class="py-16 bg-gray-50">
+		<div class="container mx-auto px-4">
+			<h2 class="text-3xl font-bold text-center mb-4 text-gray-800">Alat Kesehatan Terkini</h2>
+			<p class="text-xl text-center mb-12 text-gray-600 max-w-3xl mx-auto">Temukan alat kesehatan berkualitas untuk
+				mendukung pemeriksaan mandiri di rumah.</p>
+
+			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+				<!-- Product 1 -->
+				<div class="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition duration-300">
+					<div class="bg-gray-100 p-4 flex items-center justify-center h-48">
+						<img
+							src="https://img.freepik.com/free-photo/electronic-blood-pressure-meter-blue-background_23-2148773798.jpg"
+							alt="Tensimeter digital" class="h-40 object-contain">
+					</div>
+					<div class="p-4">
+						<h3 class="font-semibold text-gray-800 mb-1">Tensimeter Digital Omron</h3>
+						<p class="text-sm text-gray-500 mb-2">Monitor tekanan darah otomatis</p>
+						<div class="flex items-center mb-3">
+							<div class="flex text-yellow-400">
+								<i class="fas fa-star"></i>
+								<i class="fas fa-star"></i>
+								<i class="fas fa-star"></i>
+								<i class="fas fa-star"></i>
+								<i class="fas fa-star-half-alt"></i>
+							</div>
+							<span class="text-xs text-gray-500 ml-1">(128)</span>
+						</div>
+						<div class="flex items-center justify-between">
+							<span class="font-bold text-gray-800">Rp 450.000</span>
+							<button class="bg-blue-600 hover:bg-blue-700 text-white p-2 rounded-full">
+								<i class="fas fa-shopping-cart text-sm"></i>
+							</button>
+						</div>
+					</div>
+				</div>
+
+				<!-- Product 2 -->
+				<div class="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition duration-300">
+					<div class="bg-gray-100 p-4 flex items-center justify-center h-48">
+						<img src="https://img.freepik.com/free-photo/glucometer-blood-sugar-level_1150-2331.jpg"
+							alt="Glukometer" class="h-40 object-contain">
+					</div>
+					<div class="p-4">
+						<h3 class="font-semibold text-gray-800 mb-1">Glukometer Accu-Chek</h3>
+						<p class="text-sm text-gray-500 mb-2">Alat cek gula darah praktis</p>
+						<div class="flex items-center mb-3">
+							<div class="flex text-yellow-400">
+								<i class="fas fa-star"></i>
+								<i class="fas fa-star"></i>
+								<i class="fas fa-star"></i>
+								<i class="fas fa-star"></i>
+								<i class="far fa-star"></i>
+							</div>
+							<span class="text-xs text-gray-500 ml-1">(95)</span>
+						</div>
+						<div class="flex items-center justify-between">
+							<span class="font-bold text-gray-800">Rp 350.000</span>
+							<button class="bg-blue-600 hover:bg-blue-700 text-white p-2 rounded-full">
+								<i class="fas fa-shopping-cart text-sm"></i>
+							</button>
+						</div>
+					</div>
+				</div>
+
+				<!-- Product 3 -->
+				<div class="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition duration-300">
+					<div class="bg-gray-100 p-4 flex items-center justify-center h-48">
+						<img src="https://img.freepik.com/free-photo/oximeter_1203-8093.jpg" alt="Oximeter"
+							class="h-40 object-contain">
+					</div>
+					<div class="p-4">
+						<h3 class="font-semibold text-gray-800 mb-1">Oxymeter ChoiceMMed</h3>
+						<p class="text-sm text-gray-500 mb-2">Pengukur saturasi oksigen darah</p>
+						<div class="flex items-center mb-3">
+							<div class="flex text-yellow-400">
+								<i class="fas fa-star"></i>
+								<i class="fas fa-star"></i>
+								<i class="fas fa-star"></i>
+								<i class="fas fa-star"></i>
+								<i class="fas fa-star"></i>
+							</div>
+							<span class="text-xs text-gray-500 ml-1">(210)</span>
+						</div>
+						<div class="flex items-center justify-between">
+							<span class="font-bold text-gray-800">Rp 250.000</span>
+							<button class="bg-blue-600 hover:bg-blue-700 text-white p-2 rounded-full">
+								<i class="fas fa-shopping-cart text-sm"></i>
+							</button>
+						</div>
+					</div>
+				</div>
+
+				<!-- Product 4 -->
+				<div class="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition duration-300">
+					<div class="bg-gray-100 p-4 flex items-center justify-center h-48">
+						<img src="https://img.freepik.com/free-photo/electronic-scale-white-background_53876-97390.jpg"
+							alt="Timbangan digital" class="h-40 object-contain">
+					</div>
+					<div class="p-4">
+						<h3 class="font-semibold text-gray-800 mb-1">Timbangan Digital Tanita</h3>
+						<p class="text-sm text-gray-500 mb-2">Timbangan badan analisis komposisi</p>
+						<div class="flex items-center mb-3">
+							<div class="flex text-yellow-400">
+								<i class="fas fa-star"></i>
+								<i class="fas fa-star"></i>
+								<i class="fas fa-star"></i>
+								<i class="fas fa-star"></i>
+								<i class="fas fa-star-half-alt"></i>
+							</div>
+							<span class="text-xs text-gray-500 ml-1">(156)</span>
+						</div>
+						<div class="flex items-center justify-between">
+							<span class="font-bold text-gray-800">Rp 600.000</span>
+							<button class="bg-blue-600 hover:bg-blue-700 text-white p-2 rounded-full">
+								<i class="fas fa-shopping-cart text-sm"></i>
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="text-center mt-12">
+				<a href="#all-products"
+					class="bg-white hover:bg-gray-50 text-blue-600 font-semibold py-3 px-6 rounded-lg border border-blue-600 inline-flex items-center">
+					Lihat Semua Produk <i class="fas fa-arrow-right ml-2"></i>
+				</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- Consultation Section -->
+	<section id="consultation" class="py-16 bg-blue-600 text-white">
+		<div class="container mx-auto px-4">
+			<div class="flex flex-col lg:flex-row items-center">
+				<div class="lg:w-1/2 mb-10 lg:mb-0 lg:pr-10">
+					<h2 class="text-3xl font-bold mb-6">Konsultasi Online dengan Dokter Spesialis</h2>
+					<p class="text-xl mb-6">Jadwalkan konsultasi langsung dengan dokter spesialis kami melalui video call,
+						chat, atau telepon.</p>
+
+					<ul class="space-y-4 mb-8">
+						<li class="flex items-start">
+							<div class="bg-blue-500 p-2 rounded-full mr-4">
+								<i class="fas fa-check text-sm"></i>
+							</div>
+							<span>Konsultasi dari rumah tanpa perlu antri</span>
+						</li>
+						<li class="flex items-start">
+							<div class="bg-blue-500 p-2 rounded-full mr-4">
+								<i class="fas fa-check text-sm"></i>
+							</div>
+							<span>Dokter spesialis berpengalaman</span>
+						</li>
+						<li class="flex items-start">
+							<div class="bg-blue-500 p-2 rounded-full mr-4">
+								<i class="fas fa-check text-sm"></i>
+							</div>
+							<span>Resep digital yang bisa langsung ditebus di apotek terdekat</span>
+						</li>
+						<li class="flex items-start">
+							<div class="bg-blue-500 p-2 rounded-full mr-4">
+								<i class="fas fa-check text-sm"></i>
+							</div>
+							<span>Rekam medis elektronik yang tersimpan aman</span>
+						</li>
+					</ul>
+
+					<div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+						<a href="#book-now"
+							class="bg-white hover:bg-gray-100 text-blue-600 font-semibold py-3 px-6 rounded-lg text-center">
+							Buat Janji Sekarang
+						</a>
+						<a href="#learn-more"
+							class="border-2 border-white hover:bg-white hover:text-blue-600 font-semibold py-3 px-6 rounded-lg text-center">
+							Pelajari Lebih Lanjut
+						</a>
+					</div>
+				</div>
+
+				<div class="lg:w-1/2">
+					<div class="bg-white rounded-lg shadow-xl overflow-hidden">
+						<div class="bg-gray-800 p-4 text-white text-center font-semibold">
+							Dokter Tersedia Hari Ini
+						</div>
+
+						<div class="p-4">
+							<!-- Doctor 1 -->
+							<div class="flex items-center mb-4 pb-4 border-b border-gray-200">
+								<img
+									src="https://img.freepik.com/free-photo/doctor-with-his-arms-crossed-white-background_1368-5790.jpg"
+									alt="Dr. Bima" class="w-16 h-16 rounded-full object-cover mr-4">
+								<div class="flex-1">
+									<h4 class="font-semibold text-gray-800">dr. Bima, Sp.JP</h4>
+									<p class="text-sm text-gray-600 mb-2">Spesialis Jantung dan Pembuluh Darah</p>
+									<div class="flex flex-wrap gap-2">
+										<span class="bg-blue-100 text-blue-600 text-xs px-2 py-1 rounded">13:00 - 15:00</span>
+										<span class="bg-blue-100 text-blue-600 text-xs px-2 py-1 rounded">18:00 - 20:00</span>
+									</div>
+								</div>
+								<a href="#book"
+									class="bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold py-2 px-3 rounded-lg whitespace-nowrap">
+									Pilih Jadwal
+								</a>
+							</div>
+
+							<!-- Doctor 2 -->
+							<div class="flex items-center mb-4 pb-4 border-b border-gray-200">
+								<img
+									src="https://img.freepik.com/free-photo/beautiful-young-female-doctor-looking-camera-office_1301-7807.jpg"
+									alt="Dr. Nur Riviati" class="w-16 h-16 rounded-full object-cover mr-4">
+								<div class="flex-1">
+									<h4 class="font-semibold text-gray-800">dr. Nur Riviati, Sp.PD</h4>
+									<p class="text-sm text-gray-600 mb-2">Spesialis Penyakit Dalam</p>
+									<div class="flex flex-wrap gap-2">
+										<span class="bg-blue-100 text-blue-600 text-xs px-2 py-1 rounded">09:00 - 12:00</span>
+									</div>
+								</div>
+								<a href="#book"
+									class="bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold py-2 px-3 rounded-lg whitespace-nowrap">
+									Pilih Jadwal
+								</a>
+							</div>
+
+							<!-- Doctor 3 -->
+							<div class="flex items-center">
+								<img
+									src="https://img.freepik.com/free-photo/portrait-male-doctor-standing-hospital-corridor_23-2148827998.jpg"
+									alt="Dr. Nur Qodir" class="w-16 h-16 rounded-full object-cover mr-4">
+								<div class="flex-1">
+									<h4 class="font-semibold text-gray-800">dr. Nur Qodir, Sp.KJ</h4>
+									<p class="text-sm text-gray-600 mb-2">Spesialis Kesehatan Jiwa</p>
+									<div class="flex flex-wrap gap-2">
+										<span class="bg-blue-100 text-blue-600 text-xs px-2 py-1 rounded">10:00 - 12:00</span>
+										<span class="bg-blue-100 text-blue-600 text-xs px-2 py-1 rounded">14:00 - 16:00</span>
+									</div>
+								</div>
+								<a href="#book"
+									class="bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold py-2 px-3 rounded-lg whitespace-nowrap">
+									Pilih Jadwal
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Testimonials Section -->
+	<section class="py-16 bg-white">
+		<div class="container mx-auto px-4">
+			<h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Apa Kata Mereka?</h2>
+
+			<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+				<!-- Testimonial 1 -->
+				<div class="bg-gray-50 p-6 rounded-xl">
+					<div class="flex items-center mb-4">
+						<div class="flex text-yellow-400 mr-2">
+							<i class="fas fa-star"></i>
+							<i class="fas fa-star"></i>
+							<i class="fas fa-star"></i>
+							<i class="fas fa-star"></i>
+							<i class="fas fa-star"></i>
+						</div>
+						<span class="text-sm text-gray-500">2 minggu lalu</span>
+					</div>
+					<p class="text-gray-600 mb-4">"Skrining jantungnya sangat membantu. Hasilnya jelas dan dokter Bima sangat
+						informatif saat konsultasi lanjutan."</p>
+					<div class="flex items-center">
+						<img src="https://img.freepik.com/free-photo/portrait-young-man-smiling_23-2149022623.jpg" alt="Andi"
+							class="w-10 h-10 rounded-full mr-3">
+						<div>
+							<h4 class="font-medium text-gray-800">Andi</h4>
+							<p class="text-sm text-gray-500">Pasien Skrining Jantung</p>
+						</div>
+					</div>
+				</div>
+
+				<!-- Testimonial 2 -->
+				<div class="bg-gray-50 p-6 rounded-xl">
+					<div class="flex items-center mb-4">
+						<div class="flex text-yellow-400 mr-2">
+							<i class="fas fa-star"></i>
+							<i class="fas fa-star"></i>
+							<i class="fas fa-star"></i>
+							<i class="fas fa-star"></i>
+							<i class="fas fa-star"></i>
+						</div>
+						<span class="text-sm text-gray-500">1 bulan lalu</span>
+					</div>
+					<p class="text-gray-600 mb-4">"Artikel tentang diabetes sangat bermanfaat. Sekarang saya lebih paham cara
+						mengatur pola makan untuk kontrol gula darah."</p>
+					<div class="flex items-center">
+						<img
+							src="https://img.freepik.com/free-photo/young-beautiful-woman-pink-warm-sweater-natural-look-smiling-portrait-isolated-long-hair_285396-896.jpg"
+							alt="Siti" class="w-10 h-10 rounded-full mr-3">
+						<div>
+							<h4 class="font-medium text-gray-800">Siti</h4>
+							<p class="text-sm text-gray-500">Pembaca Artikel</p>
+						</div>
+					</div>
+				</div>
+
+				<!-- Testimonial 3 -->
+				<div class="bg-gray-50 p-6 rounded-xl">
+					<div class="flex items-center mb-4">
+						<div class="flex text-yellow-400 mr-2">
+							<i class="fas fa-star"></i>
+							<i class="fas fa-star"></i>
+							<i class="fas fa-star"></i>
+							<i class="fas fa-star"></i>
+							<i class="fas fa-star-half-alt"></i>
+						</div>
+						<span class="text-sm text-gray-500">3 minggu lalu</span>
+					</div>
+					<p class="text-gray-600 mb-4">"Konsultasi online dengan dr. Qodir sangat membantu masalah insomnia saya.
+						Resepnya bisa langsung ditebus di apotek dekat rumah."</p>
+					<div class="flex items-center">
+						<img src="https://img.freepik.com/free-photo/portrait-happy-young-man_23-2149022620.jpg" alt="Budi"
+							class="w-10 h-10 rounded-full mr-3">
+						<div>
+							<h4 class="font-medium text-gray-800">Budi</h4>
+							<p class="text-sm text-gray-500">Pasien Konsultasi</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Newsletter Section -->
+	<section class="py-16 bg-blue-600 text-white">
+		<div class="container mx-auto px-4 text-center">
+			<h2 class="text-3xl font-bold mb-4">Dapatkan Info Kesehatan Terkini</h2>
+			<p class="text-xl mb-8 max-w-2xl mx-auto">Berlangganan newsletter kami untuk menerima artikel kesehatan, promo
+				layanan, dan info terbaru langsung ke email Anda.</p>
+
+			<form class="max-w-md mx-auto flex flex-col sm:flex-row gap-4">
+				<input type="email" placeholder="Alamat email Anda"
+					class="flex-1 px-4 py-3 rounded-lg focus:outline-none text-gray-800">
+				<button type="submit"
+					class="bg-white hover:bg-gray-100 text-blue-600 font-semibold px-6 py-3 rounded-lg whitespace-nowrap">
+					Berlangganan
+				</button>
+			</form>
+
+			<p class="text-sm mt-4 text-blue-100">Kami tidak akan mengirim spam. Anda bisa berhenti berlangganan kapan
+				saja.</p>
+		</div>
+	</section>
+
+	<!-- Footer -->
+	<footer class="bg-gray-900 text-white pt-16 pb-8">
+		<div class="container mx-auto px-4">
+			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+				<!-- Column 1 -->
+				<div>
+					<div class="flex items-center mb-6">
+						<div class="bg-white text-white p-1 rounded-lg mr-2">
+							<img src="assets/images/logo.jpg" alt="SehatinAja Logo" class="w-10 h-10">
+						</div>
+						<span class="text-xl font-bold">SehatinAja</span>
+					</div>
+					<p class="text-gray-400 mb-4">Platform skrining kesehatan online terdepan di Indonesia dengan panduan
+						dokter spesialis.</p>
+					<div class="flex space-x-4">
+						<a href="#" class="text-gray-400 hover:text-white">
+							<i class="fab fa-facebook-f"></i>
+						</a>
+						<a href="#" class="text-gray-400 hover:text-white">
+							<i class="fab fa-twitter"></i>
+						</a>
+						<a href="#" class="text-gray-400 hover:text-white">
+							<i class="fab fa-instagram"></i>
+						</a>
+						<a href="#" class="text-gray-400 hover:text-white">
+							<i class="fab fa-linkedin-in"></i>
+						</a>
+						<a href="#" class="text-gray-400 hover:text-white">
+							<i class="fab fa-youtube"></i>
+						</a>
+					</div>
+				</div>
+
+				<!-- Column 2 -->
+				<div>
+					<h3 class="text-lg font-semibold mb-4">Layanan</h3>
+					<ul class="space-y-2">
+						<li><a href="#screening" class="text-gray-400 hover:text-white">Skrining Kesehatan</a></li>
+						<li><a href="#elderly" class="text-gray-400 hover:text-white">Khusus Lansia</a></li>
+						<li><a href="#consultation" class="text-gray-400 hover:text-white">Konsultasi Dokter</a></li>
+						<li><a href="#forum" class="text-gray-400 hover:text-white">Forum Diskusi</a></li>
+						<li><a href="#shop" class="text-gray-400 hover:text-white">Beli Alat Kesehatan</a></li>
+					</ul>
+				</div>
+
+				<!-- Column 3 -->
+				<div>
+					<h3 class="text-lg font-semibold mb-4">Informasi</h3>
+					<ul class="space-y-2">
+						<li><a href="#about" class="text-gray-400 hover:text-white">Tentang Kami</a></li>
+						<li><a href="#articles" class="text-gray-400 hover:text-white">Artikel Kesehatan</a></li>
+						<li><a href="#media" class="text-gray-400 hover:text-white">Media Publikasi</a></li>
+						<li><a href="#doctors" class="text-gray-400 hover:text-white">Dokter Kami</a></li>
+						<li><a href="#careers" class="text-gray-400 hover:text-white">Karir</a></li>
+					</ul>
+				</div>
+
+				<!-- Column 4 -->
+				<div>
+					<h3 class="text-lg font-semibold mb-4">Kontak Kami</h3>
+					<ul class="space-y-3 text-gray-400">
+						<li class="flex items-start">
+							<i class="fas fa-map-marker-alt mt-1 mr-3 text-blue-400"></i>
+							<span>Jl. Kesehatan No. 123, Jakarta Pusat, DKI Jakarta</span>
+						</li>
+						<li class="flex items-start">
+							<i class="fas fa-phone-alt mt-1 mr-3 text-blue-400"></i>
+							<span>(021) 1234-5678</span>
+						</li>
+						<li class="flex items-start">
+							<i class="fas fa-envelope mt-1 mr-3 text-blue-400"></i>
+							<span>info@sehatinaja.com</span>
+						</li>
+						<li class="flex items-start">
+							<i class="fas fa-clock mt-1 mr-3 text-blue-400"></i>
+							<span>Senin - Jumat: 08:00 - 20:00<br>Sabtu - Minggu: 09:00 - 15:00</span>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
+				<p class="text-gray-400 mb-4 md:mb-0">© 2025 SehatinAja.com. All rights reserved.</p>
+				<div class="flex space-x-6">
+					<a href="#privacy" class="text-gray-400 hover:text-white">Kebijakan Privasi</a>
+					<a href="#terms" class="text-gray-400 hover:text-white">Syarat & Ketentuan</a>
+					<a href="#sitemap" class="text-gray-400 hover:text-white">Peta Situs</a>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+	<script>
+		// Mobile menu toggle
+		document.getElementById('mobile-menu-button').addEventListener('click', function () {
+			const menu = document.getElementById('mobile-menu');
+			menu.classList.toggle('hidden');
+		});
+
+		// Simple form validation example (can be expanded)
+		document.querySelector('form').addEventListener('submit', function (e) {
+			const email = this.querySelector('input[type="email"]').value;
+			if (!email.includes('@')) {
+				e.preventDefault();
+				alert('Masukkan alamat email yang valid');
+			}
+		});
+
+		// Smooth scrolling for anchor links
+		document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+			anchor.addEventListener('click', function (e) {
+				e.preventDefault();
+
+				const targetId = this.getAttribute('href');
+				if (targetId === '#') return;
+
+				const targetElement = document.querySelector(targetId);
+				if (targetElement) {
+					targetElement.scrollIntoView({
+						behavior: 'smooth'
+					});
+				}
+			});
+		});
+	</script>
+</body>
+
+</html>
