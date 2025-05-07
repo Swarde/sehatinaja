@@ -47,7 +47,110 @@
 		.dropdown:hover .dropdown-menu {
 			display: block;
 		}
+
+		/* Modal Styles */
+		.modal {
+			display: none;
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-color: rgba(0, 0, 0, 0.5);
+			z-index: 1000;
+			opacity: 0;
+			transition: opacity 0.3s ease;
+		}
+
+		.modal.show {
+			display: flex;
+			opacity: 1;
+		}
+
+		.modal-content {
+			background: white;
+			margin: auto;
+			padding: 2rem;
+			border-radius: 0.5rem;
+			max-width: 600px;
+			width: 90%;
+			position: relative;
+			transform: scale(0.7);
+			opacity: 0;
+			transition: all 0.3s ease;
+		}
+
+		.modal.show .modal-content {
+			transform: scale(1);
+			opacity: 1;
+		}
+
+		.doctor-card {
+			cursor: pointer;
+		}
 	</style>
+	<script>
+		const doctorData = {
+			bima: {
+				name: 'dr. Bima Indra',
+				title: 'Dokter Umum',
+				image: 'https://cdn-icons-png.flaticon.com/512/3774/3774299.png',
+				color: 'blue',
+				description: 'Dokter umum lulusan <strong>Universitas Sriwijaya</strong> yang saat ini aktif bekerja sebagai dokter di perusahaan migas. Selain menjalankan praktik klinis, dr. Bima juga aktif dalam kegiatan ilmiah, termasuk menulis dan mempublikasikan berbagai karya tulis ilmiah di bidang kesehatan. Semangatnya dalam edukasi dan digitalisasi kesehatan menjadi salah satu penggerak utama lahirnya platform <strong>SehatinAja</strong>.'
+			},
+			riviati: {
+				name: 'DR. dr. Nur Riviati, SpPD, K-Ger, FINASIM',
+				title: 'Spesialis Penyakit Dalam Konsultan Geriatri',
+				image: 'https://cdn-icons-png.flaticon.com/512/3774/3774299.png',
+				color: 'purple',
+				description: 'Spesialis Penyakit Dalam Konsultan Geriatri yang berdedikasi dalam pelayanan dan pengembangan kesehatan lansia di Indonesia. Saat ini beliau merupakan dokter di salah satu <strong>Rumah Sakit Kementerian Kesehatan</strong> dan juga <strong>dosen di Fakultas Kedokteran</strong> di Palembang. Dengan latar belakang akademik yang kuat dan pengalaman klinis yang luas, beliau berkontribusi dalam pengembangan berbagai alat penilaian kesehatan lansia di <strong>SehatinAja</strong>.'
+			},
+			qodir: {
+				name: 'dr. Nur Qodir, SpB (K) Onk',
+				title: 'Spesialis Bedah Konsultan Onkologi',
+				image: 'https://cdn-icons-png.flaticon.com/512/3774/3774299.png',
+				color: 'green',
+				description: 'Dokter Spesialis Bedah Konsultan Onkologi yang memiliki keahlian dalam penanganan kasus bedah kanker. Beliau merupakan dokter di salah satu <strong>Rumah Sakit Kementerian Kesehatan</strong> dan juga <strong>dosen di Fakultas Kedokteran</strong> di Palembang. Komitmennya dalam bidang edukasi dan preventif onkologi turut memperkuat arah pengembangan fitur deteksi dini dan analisis risiko penyakit di <strong>SehatinAja</strong>.'
+			},
+		};
+
+		function showDoctorModal(doctorId) {
+			const doctor = doctorData[doctorId];
+			if (!doctor) return;
+
+			const modalContent = document.getElementById('modalContent');
+			modalContent.innerHTML = `
+				<div class="flex items-center mb-6">
+					<img src="${doctor.image}" alt="${doctor.name}" class="w-24 h-24 rounded-full object-cover mr-6">
+					<div>
+						<h3 class="text-2xl font-bold text-gray-800">${doctor.name}</h3>
+						<p class="text-${doctor.color}-600">${doctor.title}</p>
+					</div>
+				</div>
+
+				<div class="prose max-w-none text-gray-600">
+					<p class="text-lg leading-relaxed">${doctor.description}</p>
+				</div>
+			`;
+
+			const modal = document.getElementById('doctorModal');
+			modal.classList.add('show');
+			document.body.style.overflow = 'hidden';
+		}
+
+		function closeModal() {
+			const modal = document.getElementById('doctorModal');
+			modal.classList.remove('show');
+			document.body.style.overflow = '';
+		}
+
+		// Close modal when clicking outside
+		document.getElementById('doctorModal').addEventListener('click', function (e) {
+			if (e.target === this) {
+				closeModal();
+			}
+		});
+	</script>
 </head>
 
 <body class="font-sans bg-gray-50">
@@ -57,7 +160,10 @@
 			<div class="flex items-center">
 				<a href="#" class="flex items-center">
 					<img src="assets/images/logo.jpg" alt="SehatinAja Logo" class="w-10 h-10 mr-2">
-					<span class="text-xl font-bold text-blue-600">SehatinAja</span>
+					<div>
+						<span class="text-xl font-bold text-blue-600">SehatinAja</span>
+						<div class="text-sm text-gray-500">by BNQ Health</div>
+					</div>
 				</a>
 			</div>
 
@@ -307,30 +413,35 @@
 
 			<div class="flex flex-col lg:flex-row items-center">
 				<div class="lg:w-1/2 mb-10 lg:mb-0 lg:pr-10">
-					<h3 class="text-2xl font-semibold mb-4 text-gray-800">Visi Kami</h3>
-					<p class="text-gray-600 mb-6">Menjadi platform skrining kesehatan online terdepan yang memberikan akses
-						mudah dan akurat untuk deteksi dini masalah kesehatan bagi masyarakat Indonesia.</p>
+					<h3 class="text-2xl font-semibold mb-4 text-gray-800">SehatinAja by BNQ Health</h3>
+					<p class="text-gray-600 mb-6">Platform digital kesehatan yang dikembangkan pada tahun 2025 oleh tim
+						dokter profesional bersama Tim Al Barra. Hadir dengan semangat untuk <strong>"Menjadikan sehat itu mudah dan
+							bisa dimulai dari sekarang"</strong>.</p>
 
-					<h3 class="text-2xl font-semibold mb-4 text-gray-800">Misi Kami</h3>
+					<p class="text-gray-600 mb-6">Kami percaya bahwa kesehatan yang optimal berawal dari kesadaran akan
+						kondisi tubuh sendiri. <strong>SehatinAja</strong> bertujuan untuk membantu masyarakat Indonesia dalam mengenali status
+						kesehatannya sejak dini melalui deteksi dini, penilaian risiko kesehatan, serta pencegahan penyakit
+						berbasis data.</p>
+
+					<h3 class="text-2xl font-semibold mb-4 text-gray-800">Layanan Unggulan</h3>
 					<ul class="text-gray-600 mb-6 space-y-2">
 						<li class="flex items-start">
 							<i class="fas fa-check-circle text-blue-500 mt-1 mr-2"></i>
-							<span>Menyediakan alat skrining kesehatan yang mudah digunakan dan berbasis bukti ilmiah</span>
+							<span><strong>Kesehatan Otomatis:</strong> Penilaian cepat untuk mengetahui potensi risiko penyakit berdasarkan input data sederhana</span>
 						</li>
 						<li class="flex items-start">
 							<i class="fas fa-check-circle text-blue-500 mt-1 mr-2"></i>
-							<span>Memberikan edukasi kesehatan yang akurat dan mudah dipahami</span>
+							<span><strong>Penilaian Kesehatan Lansia:</strong> Alat bantu bagi lansia dan caregiver untuk mengevaluasi status	kesehatan lanjut usia secara menyeluruh</span>
 						</li>
 						<li class="flex items-start">
 							<i class="fas fa-check-circle text-blue-500 mt-1 mr-2"></i>
-							<span>Mempermudah akses konsultasi dengan tenaga medis profesional</span>
+							<span><strong>Analisis Hasil Kesehatan Karyawan:</strong> Layanan yang ditujukan bagi perusahaan untuk memahami profil kesehatan pegawainya secara kolektif dan akurat</span>
 						</li>
 					</ul>
 
 					<div class="bg-blue-50 p-4 rounded-lg">
-						<h4 class="font-semibold text-blue-600 mb-2">Fasilitas Kami</h4>
-						<p class="text-gray-600">Kami menggunakan alat-alat medis terkini dan bekerja sama dengan laboratorium
-							terakreditasi untuk memastikan keakuratan hasil skrining.</p>
+						<h4 class="font-semibold text-blue-600 mb-2">Mari mulai hidup sehat sekarang, <strong>Sehatin Aja!</strong> 🌿</h4>
+						<p class="text-gray-600">Dengan pendekatan yang edukatif, praktis, dan berbasis teknologi, <strong>SehatinAja</strong> berkomitmen menjadi sahabat masyarakat dalam perjalanan menuju hidup yang lebih sehat.</p>
 					</div>
 				</div>
 
@@ -338,63 +449,79 @@
 					<h3 class="text-2xl font-semibold mb-6 text-center lg:text-left text-gray-800">Tim Dokter Kami</h3>
 
 					<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-						<!-- Dr. Bima -->
-						<div class="bg-white border border-gray-200 rounded-lg shadow-sm overflow-hidden">
+						<!-- Dr. Bima Indra -->
+						<div class="bg-white border border-gray-200 rounded-lg shadow-sm overflow-hidden doctor-card"
+							onclick="showDoctorModal('bima')">
 							<div class="bg-blue-600 h-2"></div>
 							<div class="p-4">
 								<div class="flex items-center mb-4">
 									<img
-										src="https://img.freepik.com/free-photo/doctor-with-his-arms-crossed-white-background_1368-5790.jpg"
-										alt="Dr. Bima" class="w-16 h-16 rounded-full object-cover mr-4">
+										src="https://cdn-icons-png.flaticon.com/512/3774/3774299.png"
+										alt="Dr. Bima Indra" class="w-16 h-16 rounded-full object-cover mr-4">
 									<div>
-										<h4 class="font-bold text-gray-800">dr. Bima, Sp.JP</h4>
-										<p class="text-sm text-gray-600">Spesialis Jantung dan Pembuluh Darah</p>
+										<h4 class="font-bold text-gray-800">dr. Bima Indra</h4>
+										<p class="text-sm text-gray-600">Dokter Umum</p>
 									</div>
 								</div>
-								<p class="text-gray-600 text-sm mb-3">Dokter spesialis jantung dengan pengalaman lebih dari 10
-									tahun di bidang kardiologi.</p>
+								<p class="text-gray-600 text-sm mb-3">Dokter umum lulusan Universitas Sriwijaya yang aktif
+									bekerja sebagai dokter di perusahaan migas. Aktif dalam kegiatan ilmiah dan publikasi karya
+									tulis di bidang kesehatan.</p>
 								<a href="mailto:drbima@sehatinaja.com"
 									class="text-blue-500 text-sm hover:text-blue-600">drbima@sehatinaja.com</a>
 							</div>
 						</div>
 
 						<!-- Dr. Nur Riviati -->
-						<div class="bg-white border border-gray-200 rounded-lg shadow-sm overflow-hidden">
+						<div class="bg-white border border-gray-200 rounded-lg shadow-sm overflow-hidden doctor-card"
+							onclick="showDoctorModal('riviati')">
 							<div class="bg-purple-600 h-2"></div>
 							<div class="p-4">
 								<div class="flex items-center mb-4">
 									<img
-										src="https://img.freepik.com/free-photo/beautiful-young-female-doctor-looking-camera-office_1301-7807.jpg"
+										src="https://cdn-icons-png.flaticon.com/512/3774/3774299.png"
 										alt="Dr. Nur Riviati" class="w-16 h-16 rounded-full object-cover mr-4">
 									<div>
-										<h4 class="font-bold text-gray-800">dr. Nur Riviati, Sp.PD</h4>
-										<p class="text-sm text-gray-600">Spesialis Penyakit Dalam</p>
+										<h4 class="font-bold text-gray-800">DR. dr. Nur Riviati, SpPD, K-Ger, FINASIM</h4>
+										<p class="text-sm text-gray-600">Spesialis Penyakit Dalam Konsultan Geriatri</p>
 									</div>
 								</div>
-								<p class="text-gray-600 text-sm mb-3">Ahli penyakit dalam dengan fokus pada diabetes dan
-									penyakit metabolik.</p>
+								<p class="text-gray-600 text-sm mb-3">Dokter spesialis yang berdedikasi dalam pelayanan dan
+									pengembangan kesehatan lansia di Indonesia. Aktif sebagai dokter di Rumah Sakit Kementerian
+									Kesehatan dan dosen Fakultas Kedokteran di Palembang.</p>
 								<a href="mailto:drriviati@sehatinaja.com"
 									class="text-purple-500 text-sm hover:text-purple-600">drriviati@sehatinaja.com</a>
 							</div>
 						</div>
 
 						<!-- Dr. Nur Qodir -->
-						<div class="bg-white border border-gray-200 rounded-lg shadow-sm overflow-hidden">
+						<div class="bg-white border border-gray-200 rounded-lg shadow-sm overflow-hidden doctor-card"
+							onclick="showDoctorModal('qodir')">
 							<div class="bg-green-600 h-2"></div>
 							<div class="p-4">
 								<div class="flex items-center mb-4">
 									<img
-										src="https://img.freepik.com/free-photo/portrait-male-doctor-standing-hospital-corridor_23-2148827998.jpg"
+										src="https://cdn-icons-png.flaticon.com/512/3774/3774299.png"
 										alt="Dr. Nur Qodir" class="w-16 h-16 rounded-full object-cover mr-4">
 									<div>
-										<h4 class="font-bold text-gray-800">dr. Nur Qodir, Sp.KJ</h4>
-										<p class="text-sm text-gray-600">Spesialis Kesehatan Jiwa</p>
+										<h4 class="font-bold text-gray-800">dr. Nur Qodir, SpB (K) Onk</h4>
+										<p class="text-sm text-gray-600">Spesialis Bedah Konsultan Onkologi</p>
 									</div>
 								</div>
-								<p class="text-gray-600 text-sm mb-3">Psikiater dengan pendekatan holistik untuk kesehatan
-									mental.</p>
+								<p class="text-gray-600 text-sm mb-3">Dokter spesialis bedah dengan keahlian dalam penanganan
+									kasus bedah kanker. Aktif sebagai dokter di Rumah Sakit Kementerian Kesehatan dan dosen
+									Fakultas Kedokteran di Palembang.</p>
 								<a href="mailto:drqodir@sehatinaja.com"
 									class="text-green-500 text-sm hover:text-green-600">drqodir@sehatinaja.com</a>
+							</div>
+						</div>
+
+						<!-- Doctor Modal -->
+						<div id="doctorModal" class="modal">
+							<div class="modal-content">
+								<button onclick="closeModal()" class="absolute top-4 right-4 text-gray-500 hover:text-gray-700">
+									<i class="fas fa-times text-xl"></i>
+								</button>
+								<div id="modalContent"></div>
 							</div>
 						</div>
 
