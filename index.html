@@ -88,8 +88,60 @@
 		.doctor-card {
 			cursor: pointer;
 		}
+
+		.elderly-gradient {
+			background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+		}
+
+		.elderly-feature-card {
+			background: rgba(255, 255, 255, 0.1);
+			backdrop-filter: blur(10px);
+			border: 1px solid rgba(255, 255, 255, 0.2);
+		}
+
+		.animate-float {
+			animation: float 6s ease-in-out infinite;
+		}
+
+		@keyframes float {
+			0% {
+				transform: translateY(0px);
+			}
+
+			50% {
+				transform: translateY(-15px);
+			}
+
+			100% {
+				transform: translateY(0px);
+			}
+		}
+
+		.container {
+			margin-left: auto;
+			margin-right: auto;
+			padding-left: 1rem;
+			/* px-4 */
+			padding-right: 1rem;
+		}
+
+		@media (min-width: 1024px) {
+			.container {
+				padding-left: 3rem;
+				/* lg:px-12 */
+				padding-right: 3rem;
+			}
+		}
+
+		@media (min-width: 1280px) {
+			.container {
+				padding-left: 5rem;
+				/* xl:px-20 */
+				padding-right: 5rem;
+			}
+		}
 	</style>
-	
+
 	<script>
 		const doctorData = {
 			bima: {
@@ -225,7 +277,7 @@
 
 	<!-- Hero Section -->
 	<section id="home" class="hero-gradient text-white py-16 md:py-24">
-		<div class="container mx-auto px-4 flex flex-col md:flex-row items-center">
+		<div class="container flex flex-col md:flex-row items-center">
 			<div class="md:w-1/2 mb-10 md:mb-0">
 				<h1 class="text-4xl md:text-5xl font-bold mb-6">Skrining Kesehatan Online yang Mudah dan Akurat</h1>
 				<p class="text-xl mb-8">Lakukan pemeriksaan kesehatan awal secara mandiri dengan panduan dokter spesialis
@@ -244,17 +296,17 @@
 			<div class="md:w-1/2 flex justify-center relative animate-fadeInRight">
 				<!-- Glow background behind image -->
 				<div class="absolute -inset-4 bg-blue-300 blur-3xl opacity-30 rounded-full z-0"></div>
-			 
+
 				<!-- Main image -->
 				<img src="assets/images/hero.jpg" alt="Dokter"
-				  class="relative z-10 rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.4)] w-full max-w-md transform hover:scale-105 transition duration-500 ease-in-out">
-			 </div>
+					class="relative z-10 rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.4)] w-full max-w-md transform hover:scale-105 transition duration-500 ease-in-out">
+			</div>
 		</div>
 	</section>
 
 	<!-- Features Section -->
 	<section class="py-16 bg-white">
-		<div class="container mx-auto px-4">
+		<div class="container">
 			<h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Layanan Unggulan Kami</h2>
 
 			<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -280,12 +332,14 @@
 
 				<!-- Feature 3 -->
 				<div class="bg-gray-50 p-6 rounded-xl shadow-md card-hover transition duration-300">
-					<div class="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mb-4">
-						<i class="fas fa-notes-medical text-purple-600 text-2xl"></i>
+					<div class="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mb-4">
+						<i class="fas fa-notes-medical text-green-600 text-2xl"></i>
 					</div>
-					<h3 class="text-xl font-semibold mb-3 text-gray-800">Riwayat Kesehatan</h3>
-					<p class="text-gray-600">Simpan dan pantau perkembangan kesehatan Anda dengan fitur riwayat yang
-						terintegrasi.</p>
+					<h3 class="text-xl font-semibold mb-3 text-gray-800">Skrining Lansia</h3>
+					<p class="text-gray-600">
+						Deteksi dini masalah kesehatan lanjut usia melalui penilaian kondisi kesehatan fisik, mental, dan
+						sosial.
+					</p>
 				</div>
 			</div>
 		</div>
@@ -293,7 +347,7 @@
 
 	<!-- Screening Section -->
 	<section id="screening" class="py-16 bg-gray-50">
-		<div class="container mx-auto px-4">
+		<div class="container">
 			<h2 class="text-3xl font-bold text-center mb-4 text-gray-800">Skrining Kesehatan</h2>
 			<p class="text-xl text-center mb-12 text-gray-600 max-w-3xl mx-auto">Pilih jenis skrining yang ingin Anda
 				lakukan untuk mengetahui risiko kesehatan Anda.</p>
@@ -392,17 +446,17 @@
 
 				<!-- Lansia -->
 				<div class="bg-white rounded-xl overflow-hidden shadow-md screening-card">
-					<div class="bg-indigo-500 h-2"></div>
+					<div class="bg-green-500 h-2"></div>
 					<div class="p-6">
 						<div class="flex items-center mb-4">
-							<div class="bg-indigo-100 p-3 rounded-full mr-4">
-								<i class="fas fa-wheelchair text-indigo-500 text-xl"></i>
+							<div class="bg-green-100 p-3 rounded-full mr-4">
+								<i class="fas fa-wheelchair text-green-500 text-xl"></i>
 							</div>
 							<h3 class="text-xl font-semibold text-gray-800">Khusus Lansia</h3>
 						</div>
 						<p class="text-gray-600 mb-4">Skrining kesehatan komprehensif khusus untuk usia lanjut.</p>
 						<a href="#screening-elderly"
-							class="text-indigo-500 font-semibold hover:text-indigo-600 flex items-center">
+							class="text-green-500 font-semibold hover:text-green-600 flex items-center">
 							Mulai Skrining <i class="fas fa-arrow-right ml-2"></i>
 						</a>
 					</div>
@@ -411,18 +465,100 @@
 		</div>
 	</section>
 
+	<!-- Elderly Section -->
+	<section id="elderly" class="elderly-gradient text-white py-16 relative overflow-hidden">
+		<!-- Decorative elements -->
+		<div class="absolute -top-20 -left-20 w-64 h-64 rounded-full bg-green-300 opacity-20"></div>
+		<div class="absolute -bottom-20 -right-20 w-64 h-64 rounded-full bg-green-400 opacity-20"></div>
+		<div class="absolute top-1/4 -right-10 w-32 h-32 rounded-full bg-white opacity-10"></div>
+
+		<div class="container relative z-10">
+			<div class="flex flex-col lg:flex-row items-center">
+				<div class="lg:w-1/2 mb-10 lg:mb-0 lg:pr-10">
+					<h2 class="text-3xl md:text-4xl font-bold mb-6">Layanan Khusus Lansia</h2>
+					<p class="text-xl mb-8 opacity-90">Kami memahami bahwa kebutuhan kesehatan lansia berbeda. Oleh karena
+						itu,
+						kami menyediakan skrining kesehatan khusus yang mencakup berbagai aspek penting untuk usia lanjut.</p>
+
+					<div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+						<div class="elderly-feature-card p-4 rounded-lg">
+							<div class="flex items-center mb-2">
+								<div class="bg-white bg-opacity-20 p-2 rounded-full mr-3">
+									<i class="fas fa-brain text-white"></i>
+								</div>
+								<h3 class="font-semibold">Skrining Kognitif</h3>
+							</div>
+							<p class="text-sm opacity-80">Deteksi dini gangguan memori dan fungsi kognitif</p>
+						</div>
+
+						<div class="elderly-feature-card p-4 rounded-lg">
+							<div class="flex items-center mb-2">
+								<div class="bg-white bg-opacity-20 p-2 rounded-full mr-3">
+									<i class="fas fa-walking text-white"></i>
+								</div>
+								<h3 class="font-semibold">Evaluasi Risika Jatuh</h3>
+							</div>
+							<p class="text-sm opacity-80">Penilaian keseimbangan dan risiko jatuh</p>
+						</div>
+
+						<div class="elderly-feature-card p-4 rounded-lg">
+							<div class="flex items-center mb-2">
+								<div class="bg-white bg-opacity-20 p-2 rounded-full mr-3">
+									<i class="fas fa-utensils text-white"></i>
+								</div>
+								<h3 class="font-semibold">Penilaian Nutrisi</h3>
+							</div>
+							<p class="text-sm opacity-80">Evaluasi status gizi dan kebutuhan nutrisi</p>
+						</div>
+
+						<div class="elderly-feature-card p-4 rounded-lg">
+							<div class="flex items-center mb-2">
+								<div class="bg-white bg-opacity-20 p-2 rounded-full mr-3">
+									<i class="fas fa-heartbeat text-white"></i>
+								</div>
+								<h3 class="font-semibold">Pemeriksaan Polifarmasi</h3>
+							</div>
+							<p class="text-sm opacity-80">Evaluasi interaksi obat dan efek samping</p>
+						</div>
+					</div>
+
+					<div class="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4">
+						<a href="#elderly-screening"
+							class="bg-white text-green-600 hover:bg-gray-100 font-semibold py-3 px-6 rounded-lg text-center transition duration-300">
+							Mulai Skrining Lansia <i class="fas fa-arrow-right ml-2"></i>
+						</a>
+						<!-- <a href="#elderly-guide" class="border-2 border-white hover:bg-white hover:text-green-600 font-semibold py-3 px-6 rounded-lg text-center transition duration-300">
+							Panduan Perawatan <i class="fas fa-book ml-2"></i>
+						</a> -->
+					</div>
+				</div>
+
+				<div class="lg:w-1/2 flex justify-center">
+					<div class="relative">
+						<div class="absolute -inset-8 bg-white bg-opacity-20 rounded-full blur-xl"></div>
+						<img src="assets/images/lansia.jpg" alt="Lansia sehat"
+							class="relative z-10 rounded-2xl shadow-2xl w-full max-w-md animate-float">
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
 	<!-- About Section -->
 	<section id="about" class="py-16 bg-white">
-		<div class="container mx-auto px-4">
+		<div class="container">
 			<h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Tentang Kami</h2>
 
 			<div class="flex flex-col lg:flex-row items-center">
 				<div class="lg:w-1/2 mb-10 lg:mb-0 lg:pr-10">
 					<h3 class="text-2xl font-semibold mb-4 text-gray-800">SehatinAja by BNQ Health</h3>
-					<p class="text-gray-600 mb-6">Platform digital kesehatan yang dikembangkan pada tahun 2025 oleh <strong>tim	dokter profesional</strong> bersama <strong>Tim Al Barra</strong>. Hadir dengan semangat untuk <strong>"Menjadikan sehat itu mudah dan bisa dimulai dari sekarang"</strong>.</p>
+					<p class="text-gray-600 mb-6">Platform digital kesehatan yang dikembangkan pada tahun 2025 oleh
+						<strong>tim dokter profesional</strong> bersama <strong>Tim Al Barra</strong>. Hadir dengan semangat
+						untuk <strong>"Menjadikan sehat itu mudah dan bisa dimulai dari sekarang"</strong>.</p>
 
 					<p class="text-gray-600 mb-6">Kami percaya bahwa kesehatan yang optimal berawal dari kesadaran akan
-						kondisi tubuh sendiri. <strong>SehatinAja</strong> bertujuan untuk membantu masyarakat Indonesia dalam mengenali status
+						kondisi tubuh sendiri. <strong>SehatinAja</strong> bertujuan untuk membantu masyarakat Indonesia dalam
+						mengenali status
 						kesehatannya sejak dini melalui deteksi dini, penilaian risiko kesehatan, serta pencegahan penyakit
 						berbasis data.</p>
 
@@ -430,21 +566,27 @@
 					<ul class="text-gray-600 mb-6 space-y-2">
 						<li class="flex items-start">
 							<i class="fas fa-check-circle text-blue-500 mt-1 mr-2"></i>
-							<span><strong>Skrining Kesehatan Otomatis:</strong> Penilaian cepat untuk mengetahui potensi risiko penyakit berdasarkan input data sederhana</span>
+							<span><strong>Skrining Kesehatan Otomatis:</strong> Penilaian cepat untuk mengetahui potensi risiko
+								penyakit berdasarkan input data sederhana</span>
 						</li>
 						<li class="flex items-start">
 							<i class="fas fa-check-circle text-blue-500 mt-1 mr-2"></i>
-							<span><strong>Penilaian Kesehatan Lansia:</strong> Alat bantu bagi lansia dan caregiver untuk mengevaluasi status	kesehatan lanjut usia secara menyeluruh</span>
+							<span><strong>Penilaian Kesehatan Lansia:</strong> Alat bantu bagi lansia dan caregiver untuk
+								mengevaluasi status kesehatan lanjut usia secara menyeluruh</span>
 						</li>
 						<li class="flex items-start">
 							<i class="fas fa-check-circle text-blue-500 mt-1 mr-2"></i>
-							<span><strong>Analisis Hasil Kesehatan Karyawan:</strong> Layanan yang ditujukan bagi perusahaan untuk memahami profil kesehatan pegawainya secara kolektif dan akurat</span>
+							<span><strong>Analisis Hasil Kesehatan Karyawan:</strong> Layanan yang ditujukan bagi perusahaan
+								untuk memahami profil kesehatan pegawainya secara kolektif dan akurat</span>
 						</li>
 					</ul>
 
 					<div class="bg-blue-50 p-4 rounded-lg">
-						<h4 class="font-semibold text-blue-600 mb-2">Mari mulai hidup sehat sekarang, <strong>Sehatin Aja!</strong> 🌿</h4>
-						<p class="text-gray-600">Dengan pendekatan yang edukatif, praktis, dan berbasis teknologi, <strong>SehatinAja</strong> berkomitmen menjadi sahabat masyarakat dalam perjalanan menuju hidup yang lebih sehat.</p>
+						<h4 class="font-semibold text-blue-600 mb-2">Mari mulai hidup sehat sekarang, <strong>Sehatin
+								Aja!</strong> 🌿</h4>
+						<p class="text-gray-600">Dengan pendekatan yang edukatif, praktis, dan berbasis teknologi,
+							<strong>SehatinAja</strong> berkomitmen menjadi sahabat masyarakat dalam perjalanan menuju hidup
+							yang lebih sehat.</p>
 					</div>
 				</div>
 
@@ -458,9 +600,8 @@
 							<div class="bg-blue-600 h-2"></div>
 							<div class="p-4">
 								<div class="flex items-center mb-4">
-									<img
-										src="https://cdn-icons-png.flaticon.com/512/3774/3774299.png"
-										alt="dr. Bima Indra" class="w-16 h-16 rounded-full object-cover mr-4">
+									<img src="https://cdn-icons-png.flaticon.com/512/3774/3774299.png" alt="dr. Bima Indra"
+										class="w-16 h-16 rounded-full object-cover mr-4">
 									<div>
 										<h4 class="font-bold text-gray-800">dr. Bima Indra</h4>
 										<p class="text-sm text-gray-600">Dokter Umum</p>
@@ -469,8 +610,8 @@
 								<p class="text-gray-600 text-sm mb-3">Dokter umum lulusan Universitas Sriwijaya yang aktif
 									bekerja sebagai dokter di perusahaan migas. Aktif dalam kegiatan ilmiah dan publikasi karya
 									tulis di bidang kesehatan.</p>
-								<a href="mailto:drbimaindra@sehatinaja.com"
-									class="text-blue-500 text-sm hover:text-blue-600"> drbimaindra@sehatinaja.co,
+								<a href="mailto:drbimaindra@sehatinaja.com" class="text-blue-500 text-sm hover:text-blue-600">
+									drbimaindra@sehatinaja.co,
 								</a>
 							</div>
 						</div>
@@ -481,9 +622,9 @@
 							<div class="bg-purple-600 h-2"></div>
 							<div class="p-4">
 								<div class="flex items-center mb-4">
-									<img
-										src="https://cdn-icons-png.flaticon.com/512/3774/3774299.png"
-										alt="DR. dr. Nur Riviati, SpPD, K-Ger, FINASIM" class="w-16 h-16 rounded-full object-cover mr-4">
+									<img src="https://cdn-icons-png.flaticon.com/512/3774/3774299.png"
+										alt="DR. dr. Nur Riviati, SpPD, K-Ger, FINASIM"
+										class="w-16 h-16 rounded-full object-cover mr-4">
 									<div>
 										<h4 class="font-bold text-gray-800">DR. dr. Nur Riviati, SpPD, K-Ger, FINASIM</h4>
 										<p class="text-sm text-gray-600">Spesialis Penyakit Dalam Konsultan Geriatri</p>
@@ -504,8 +645,7 @@
 							<div class="bg-green-600 h-2"></div>
 							<div class="p-4">
 								<div class="flex items-center mb-4">
-									<img
-										src="https://cdn-icons-png.flaticon.com/512/3774/3774299.png"
+									<img src="https://cdn-icons-png.flaticon.com/512/3774/3774299.png"
 										alt="dr. Nur Qodir, SpB (K) Onk" class="w-16 h-16 rounded-full object-cover mr-4">
 									<div>
 										<h4 class="font-bold text-gray-800">dr. Nur Qodir, SpB (K) Onk</h4>
@@ -551,14 +691,14 @@
 		</div>
 	</section>
 
-	<!-- Elderly Section -->
-	 <!-- Consultation Section -->
+	<!-- Consultation Section -->
 	<section id="contact" class="py-16 bg-blue-50">
-		<div class="container mx-auto px-4">
+		<div class="container">
 			<div class="flex flex-col lg:flex-row items-center">
 				<div class="lg:w-1/2 mb-10 lg:mb-0 lg:pr-10">
 					<h2 class="text-3xl font-bold mb-6 text-gray-800">Hubungi Kami</h2>
-					<p class="text-gray-600 mb-6">Dapatkan solusi kesehatan terbaik untuk perusahaan dan institusi Anda<br>bersama tim dokter profesional kami.</p>
+					<p class="text-gray-600 mb-6">Dapatkan solusi kesehatan terbaik untuk perusahaan dan institusi
+						Anda<br>bersama tim dokter profesional kami.</p>
 
 					<div class="bg-white p-6 rounded-lg shadow-sm mb-6">
 						<h3 class="text-xl font-semibold mb-3 text-gray-800">Layanan Konsultasi Kami</h3>
@@ -583,7 +723,7 @@
 							</li>
 							<li class="flex items-start">
 								<span class="w-6 mt-1 mr-2 flex justify-center">
-									<i class="fas fa-chalkboard-teacher text-blue-500"></i>
+									<i class="fas fa chalkboard-teacher text-blue-500"></i>
 								</span>
 								<span>Narasumber penyuluhan kesehatan</span>
 							</li>
@@ -591,10 +731,12 @@
 					</div>
 
 					<div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-						<a href="#contact-form" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg inline-flex items-center">
+						<a href="#contact-form"
+							class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg inline-flex items-center">
 							<i class="fas fa-envelope mr-2"></i> Kirim Pesan
 						</a>
-						<a href="tel:+6281234567890" class="border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white font-semibold py-3 px-6 rounded-lg inline-flex items-center transition duration-300">
+						<a href="tel:+6281234567890"
+							class="border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white font-semibold py-3 px-6 rounded-lg inline-flex items-center transition duration-300">
 							<i class="fas fa-phone-alt mr-2"></i> Hubungi Kami
 						</a>
 					</div>
@@ -609,7 +751,7 @@
 
 	<!-- Articles Section -->
 	<section id="articles" class="py-16 bg-white">
-		<div class="container mx-auto px-4">
+		<div class="container">
 			<h2 class="text-3xl font-bold text-center mb-4 text-gray-800">Artikel Kesehatan Terkini</h2>
 			<p class="text-xl text-center mb-12 text-gray-600 max-w-3xl mx-auto">Informasi kesehatan terpercaya yang
 				ditulis oleh dokter spesialis kami.</p>
@@ -665,7 +807,7 @@
 					<div class="p-6">
 						<div class="flex items-center text-sm text-gray-500 mb-2">
 							<span>5 Juni 2025</span>
-							<span class="mx-2">•</span>
+							span class="mx-2">•</span>
 							<span>dr. Nur Qodir, SpB (K) Onk</span>
 						</div>
 						<h3 class="text-xl font-semibold mb-3 text-gray-800">Teknik Relaksasi untuk Mengurangi Stres Harian
@@ -690,9 +832,10 @@
 
 	<!-- Media Section -->
 	<section id="media" class="py-16 bg-gray-50">
-		<div class="container mx-auto px-4">
+		<div class="container">
 			<h2 class="text-3xl font-bold text-center mb-4 text-gray-800">Media Publikasi</h2>
-			<p class="text-xl text-center mb-12 text-gray-600 max-w-3xl mx-auto">Hasil penelitian dan publikasi ilmiah dari tim dokter kami.</p>
+			<p class="text-xl text-center mb-12 text-gray-600 max-w-3xl mx-auto">Hasil penelitian dan publikasi ilmiah dari
+				tim dokter kami.</p>
 
 			<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
 				<!-- Publication 1 -->
@@ -722,7 +865,8 @@
 						</div>
 						<div>
 							<h3 class="text-xl font-semibold text-gray-800">Efektivitas Program Edukasi Diabetes Mandiri</h3>
-							<p class="text-sm text-gray-500">DR. dr. Nur Riviati, SpPD, K-Ger, FINASIM | Jurnal Penyakit Dalam, 2022</p>
+							<p class="text-sm text-gray-500">DR. dr. Nur Riviati, SpPD, K-Ger, FINASIM | Jurnal Penyakit Dalam,
+								2022</p>
 						</div>
 					</div>
 					<p class="text-gray-600 mb-4">Studi tentang dampak program edukasi mandiri terhadap kontrol glikemik
@@ -758,7 +902,8 @@
 						</div>
 						<div>
 							<h3 class="text-xl font-semibold text-gray-800">Podcast: Nutrisi Optimal untuk Lansia</h3>
-							<p class="text-sm text-gray-500">DR. dr. Nur Riviati, SpPD, K-Ger, FINASIM | SehatinAja Podcast, 2025</p>
+							<p class="text-sm text-gray-500">DR. dr. Nur Riviati, SpPD, K-Ger, FINASIM | SehatinAja Podcast,
+								2025</p>
 						</div>
 					</div>
 					<p class="text-gray-600 mb-4">Diskusi tentang kebutuhan nutrisi khusus untuk lansia dan tips menyusun
@@ -780,7 +925,7 @@
 
 	<!-- Forum Section -->
 	<section id="forum" class="py-16 bg-white">
-		<div class="container mx-auto px-4">
+		<div class="container">
 			<div class="flex flex-col lg:flex-row items-center">
 				<div class="lg:w-1/2 mb-10 lg:mb-0 lg:pr-10">
 					<h2 class="text-3xl font-bold mb-6 text-gray-800">Forum Diskusi Kesehatan</h2>
@@ -897,7 +1042,8 @@
 										<i class="fas fa-user-md text-blue-600 text-sm"></i>
 									</div>
 									<div>
-										<p class="text-sm text-gray-600">DR. dr. Nur Riviati, SpPD, K-Ger, FINASIM: "Untuk lansia dengan osteoporosis,
+										<p class="text-sm text-gray-600">DR. dr. Nur Riviati, SpPD, K-Ger, FINASIM: "Untuk lansia
+											dengan osteoporosis,
 											olahraga low-impact seperti berjalan kaki, tai chi, atau berenang sangat
 											direkomendasikan..." <a href="#read-more" class="text-blue-500">Baca selengkapnya</a>
 										</p>
@@ -915,12 +1061,11 @@
 					</div>
 				</div>
 			</div>
-		</div>
 	</section>
 
 	<!-- Shop Section -->
 	<section id="shop" class="py-16 bg-gray-50">
-		<div class="container mx-auto px-4">
+		<div class="container">
 			<h2 class="text-3xl font-bold text-center mb-4 text-gray-800">Alat Kesehatan Terkini</h2>
 			<p class="text-xl text-center mb-12 text-gray-600 max-w-3xl mx-auto">Temukan alat kesehatan berkualitas untuk
 				mendukung pemeriksaan mandiri di rumah.</p>
@@ -1048,10 +1193,10 @@
 			</div>
 		</div>
 	</section>
-	
+
 	<!-- Testimonials Section -->
 	<section class="py-16 bg-white">
-		<div class="container mx-auto px-4">
+		<div class="container">
 			<h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Apa Kata Mereka?</h2>
 
 			<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -1133,7 +1278,7 @@
 
 	<!-- Newsletter Section -->
 	<section class="py-16 bg-blue-600 text-white">
-		<div class="container mx-auto px-4 text-center">
+		<div class="container text-center">
 			<h2 class="text-3xl font-bold mb-4">Dapatkan Info Kesehatan Terkini</h2>
 			<p class="text-xl mb-8 max-w-2xl mx-auto">Berlangganan newsletter kami untuk menerima artikel kesehatan, promo
 				layanan, dan info terbaru langsung ke email Anda.</p>
@@ -1154,7 +1299,7 @@
 
 	<!-- Footer -->
 	<footer class="bg-gray-900 text-white pt-16 pb-8">
-		<div class="container mx-auto px-4">
+		<div class="container">
 			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
 				<!-- Column 1 -->
 				<div>
